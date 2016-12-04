@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Created by sloriac on 16-12-4.
+ *
  */
-
 @Repository
 public class GeoNameDao extends BaseDao {
 

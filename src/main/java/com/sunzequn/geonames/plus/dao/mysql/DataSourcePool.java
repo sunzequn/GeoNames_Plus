@@ -2,16 +2,15 @@ package com.sunzequn.geonames.plus.dao.mysql;
 
 import org.apache.log4j.Logger;
 
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.SQLFeatureNotSupportedException;
 import java.util.LinkedList;
 
 
 /**
  * Created by sloriac on 16-12-4.
+ *
  */
 public class DataSourcePool {
 

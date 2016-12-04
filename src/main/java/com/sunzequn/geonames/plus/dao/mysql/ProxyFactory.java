@@ -5,7 +5,7 @@ import java.lang.reflect.Proxy;
 import java.sql.Connection;
 
 /**
- * @author sunzequn
+ * Created by sloriac on 16-12-4.
  */
 public class ProxyFactory {
 

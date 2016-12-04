@@ -8,7 +8,8 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 /**
- * @author sunzequn
+ * Created by sloriac on 16-12-4.
+ * 
  */
 public abstract class BaseDao {
 

@@ -6,7 +6,8 @@ import java.sql.Connection;
 import java.util.LinkedList;
 
 /**
- * @author sunzequn
+ * Created by sloriac on 16-12-4.
+ *
  */
 public class ConnectionInvocationHandler implements InvocationHandler {
 

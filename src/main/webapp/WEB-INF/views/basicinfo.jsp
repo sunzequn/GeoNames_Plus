@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <head>
     <meta charset="UTF-8">
-    <title>基础库</title>
+    <title>Title</title>
 </head>
 <body>
 <jsp:include page="common.jsp"></jsp:include>
@@ -22,7 +22,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">首页</a></li>
+                <li><a href="/geonamesplus/">首页</a></li>
                 <li><a href="http://ws.nju.edu.cn/explass/">关联搜索</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -32,24 +32,8 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container center">
 
-    <div class="row">
-        <div class="col-lg-3 center">
-            <div class="input-group">
-                <input type="text" id="search-input" class="form-control">
-                <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">查询内容 <span
-                            class="caret"></span></button>
-                    <ul id="search-type" class="dropdown-menu dropdown-menu-right" role="menu">
-                        <li><a id="1" onclick="search_input(this.id)">基础信息</a></li>
-                        <li><a id="2" onclick="search_input(this.id)">附近城市</a></li>
-                        <li><a id="3" onclick="search_input(this.id)">国家信息</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 
