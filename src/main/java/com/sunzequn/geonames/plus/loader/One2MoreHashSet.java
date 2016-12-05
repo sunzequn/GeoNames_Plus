@@ -10,15 +10,23 @@ import java.util.Map;
  */
 public class One2MoreHashSet {
 
-    private static Map<String, List<String>> map = new HashMap<>();
+    private Map<String, List<Integer>> map = new HashMap<>();
 
-    public static void add(String key, String value) {
+    public void add(String key, int value) {
         if (!map.containsKey(key)) {
-            List<String> values = new ArrayList<>();
+            List<Integer> values = new ArrayList<>();
             values.add(value);
             map.put(key, values);
         } else {
             map.get(key).add(value);
         }
+    }
+
+    public int getNum() {
+        return map.size();
+    }
+
+    public List<Integer> get(String key) {
+        return map.get(key);
     }
 }

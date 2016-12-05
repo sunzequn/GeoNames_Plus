@@ -1,7 +1,13 @@
 package com.sunzequn.geonames.plus.dao.mysql;
 
+import com.sunzequn.geonames.plus.bean.Geoname;
+import com.sunzequn.geonames.plus.utils.ListUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
 
 
 /**
@@ -13,5 +19,23 @@ public class GeoNameDao extends BaseDao {
 
     @Autowired
     private DataSourcePool dataSourcePool;
+    private String table = "geoname";
+
+    public Geoname getById(int geonameId) {
+        Connection connection = null;
+        try {
+            connection = dataSourcePool.getConnection();
+            String sql = "select * from " + table + " where geonameid = " + geonameId;
+            List<Geoname> geonames = query(connection, sql, null, Geoname.class);
+            connection.close();
+            if (ListUtil.isEmpty(geonames))
+                return null;
+            return geonames.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
 }

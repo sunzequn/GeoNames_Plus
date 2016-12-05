@@ -1,9 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="zh-CN">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:useBean id="name" scope="request" type="java.lang.String"/>
+<jsp:useBean id="selections" scope="request" type="java.util.List"/>
 <head>
     <meta charset="UTF-8">
-    <title>基础库</title>
+    <title>Title</title>
 </head>
 <body>
 <jsp:include page="common.jsp"></jsp:include>
@@ -22,7 +25,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">查询</a></li>
+                <li><a href="/geonamesplus/">查询</a></li>
                 <li><a href="http://ws.nju.edu.cn/explass/">关联搜索</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -33,15 +36,10 @@
 </nav>
 
 <div class="container">
-
     <div class="row">
-        <div class="col-lg-4 search-center">
-            <div class="label-search-info">
-                <label class="label label-info">请输入要查询的实体名称, 比如南京或Nanjing</label>
-            </div>
-
+        <div class="col-lg-4 top">
             <div class="input-group">
-                <input type="text" id="search-input" class="form-control">
+                <input type="text" id="search-input" class="form-control" value="${name}">
                 <div class="input-group-btn">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">查询内容 <span
                             class="caret"></span></button>
@@ -52,19 +50,30 @@
                     </ul>
                 </div>
             </div>
+
+            <table class="table table-striped table-margin-top">
+                <tr>
+                    <td>标号</td>
+                    <td>名称</td>
+                    <td>类型</td>
+                    <td>国家</td>
+                    <td>详情</td>
+                </tr>
+                <c:forEach var="selection" items="${selections}">
+                    <tr>
+                        <td>${selection.id}</td>
+                        <td>${selection.name}</td>
+                        <td>${selection.fclass}</td>
+                        <td>${selection.country}</td>
+                        <td><a href="/geonamesplus/view/${selection.geonameid}"><span
+                                class="glyphicon glyphicon-chevron-right"></span></a></td>
+                    </tr>
+                </c:forEach>
+            </table>
+
         </div>
     </div>
-
-    <div class="jumbotron center">
-        <h2>地理基础知识库</h2>
-        <h4>基础库以GeoNames数据集为核心. GeoNames是一个地点基础信息知识库, 收录了全球1000多万地点实体.
-            通过实体链接, 基础库从Wikidata和Clinga等知识库补充了地点的中文名称数据.
-            基础库还包括了从国家统计局获得的中国城市数据、从中国气象网获取的中国气候要素数据、从NASA的GPCP项目获取的全球降水数据以及Koppen气候类型分布数据等.
-            基础库一共包含超过1100万的地点实体和约2亿多条三元组.</h4>
-    </div>
-
 </div>
-
 
 </body>
 </html>
