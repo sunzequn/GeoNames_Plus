@@ -28,7 +28,7 @@ public class SearchController {
     private SelectionHandler selectionHandler;
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public String search(Model model, RedirectAttributes redirectAttributes, @PathVariable String name) {
+    public String search(Model model, @PathVariable String name) {
         List<GeonameDesc> descs = selectionHandler.descNames(name);
         if (descs == null) {
             model.addAttribute("message", "没有查到相关实体");

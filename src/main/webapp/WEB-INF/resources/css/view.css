@@ -26,9 +26,14 @@
     transform: translate(-50%, -50%);
 }
 
-.table-margin-top {
+.div-margin-top {
     position: relative;
     margin-top: 20px;
+}
+
+.div-margin-top40 {
+    position: relative;
+    margin-top: 40px;
 }
 
 .label-search-info {

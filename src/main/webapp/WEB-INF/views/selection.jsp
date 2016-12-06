@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <table class="table table-striped table-margin-top">
+            <table class="table table-striped div-margin-top">
                 <tr>
                     <td>标号</td>
                     <td>名称</td>

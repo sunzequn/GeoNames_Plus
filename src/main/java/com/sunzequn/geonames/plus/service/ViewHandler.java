@@ -59,9 +59,9 @@ public class ViewHandler {
         double nianjunqiwen = nianJunQiWen(id);
         if (nianjunqiwen > -1) climateProps.add(new PropValue("年均气温(℃)", String.valueOf(DoubleUtil.m2d(nianjunqiwen))));
 
-        climateProps.add(new PropValue("年均降水(mm)", climate.getNianJunJiangShui()));
-        climateProps.add(new PropValue("夏季降水(mm)", climate.getXiaJiJiangShui()));
-        climateProps.add(new PropValue("冬季降水(mm)", climate.getDongJiJiangShui()));
+        climateProps.add(new PropValue("年均降水总量(mm)", climate.getNianJunJiangShui()));
+        climateProps.add(new PropValue("夏季降水总量(mm)", climate.getXiaJiJiangShui()));
+        climateProps.add(new PropValue("冬季降水总量(mm)", climate.getDongJiJiangShui()));
         climateProps.add(new PropValue("Koppen气候类型", climate.getKoppen()));
         climateProps.add(new PropValue("气候类型", climate.getZhongXueQiHouLeiXing()));
         climateProps.add(new PropValue("热量带", climate.getReLiangDai()));
@@ -81,6 +81,7 @@ public class ViewHandler {
         else basicProps.add(new PropValue("名称", geoname.getAsciiname()));
 
         basicProps.add(new PropValue("类型", fClassMappingLoader.get(geoname.getFclass())));
+        basicProps.add(new PropValue("具体类型", geoname.getFcode()));
         basicProps.add(new PropValue("国家", geoname.getCountry()));
         basicProps.add(new PropValue("经度", String.valueOf(geoname.getLongitude())));
         basicProps.add(new PropValue("纬度", String.valueOf(geoname.getLatitude())));

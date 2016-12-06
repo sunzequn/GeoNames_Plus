@@ -25,6 +25,7 @@ public class ViewController {
     public String view(Model model, @PathVariable int id) {
         List<PropValue> propValues = viewHandler.geneProps(id);
         model.addAttribute("propValues", propValues);
+        model.addAttribute("id", id);
         return "view";
     }
 }
