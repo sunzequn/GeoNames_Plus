@@ -41,15 +41,9 @@
             </div>
 
             <div class="input-group">
-                <input type="text" id="search-input" class="form-control">
+                <input type="text" id="search-input" class="form-control" onkeyup="search_enter(event)">
                 <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">查询内容 <span
-                            class="caret"></span></button>
-                    <ul id="search-type" class="dropdown-menu dropdown-menu-right" role="menu">
-                        <li><a id="1" onclick="search_input(this.id)">基础信息</a></li>
-                        <li><a id="2" onclick="search_input(this.id)">附近城市</a></li>
-                        <li><a id="3" onclick="search_input(this.id)">国家信息</a></li>
-                    </ul>
+                    <button type="button" class="btn btn-default" onclick="search_input()">查询</button>
                 </div>
             </div>
         </div>

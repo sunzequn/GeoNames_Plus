@@ -6,7 +6,7 @@
 <jsp:useBean id="selections" scope="request" type="java.util.List"/>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
 </head>
 <body>
 <jsp:include page="common.jsp"></jsp:include>
@@ -39,15 +39,9 @@
     <div class="row">
         <div class="col-lg-4 top">
             <div class="input-group">
-                <input type="text" id="search-input" class="form-control" value="${name}">
+                <input type="text" id="search-input" class="form-control" onkeyup="search_enter(event)">
                 <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">查询内容 <span
-                            class="caret"></span></button>
-                    <ul id="search-type" class="dropdown-menu dropdown-menu-right" role="menu">
-                        <li><a id="1" onclick="search_input(this.id)">基础信息</a></li>
-                        <li><a id="2" onclick="search_input(this.id)">附近城市</a></li>
-                        <li><a id="3" onclick="search_input(this.id)">国家信息</a></li>
-                    </ul>
+                    <button type="button" class="btn btn-default" onclick="search_input()">查询</button>
                 </div>
             </div>
 
@@ -58,6 +52,7 @@
                     <td>类型</td>
                     <td>国家</td>
                     <td>详情</td>
+                    <td>附近地点</td>
                 </tr>
                 <c:forEach var="selection" items="${selections}">
                     <tr>
@@ -66,7 +61,9 @@
                         <td>${selection.fclass}</td>
                         <td>${selection.country}</td>
                         <td><a href="/geonamesplus/view/${selection.geonameid}"><span
-                                class="glyphicon glyphicon-chevron-right"></span></a></td>
+                                class="glyphicon glyphicon-search"></span></a></td>
+                        <td><a href="/geonamesplus/nearby/${selection.geonameid}"><span
+                                class="glyphicon glyphicon-map-marker"></span></a></td>
                     </tr>
                 </c:forEach>
             </table>

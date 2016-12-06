@@ -26,19 +26,18 @@ public class SearchController {
     @Autowired
     private SelectionHandler selectionHandler;
 
-    @RequestMapping(value = "/{name}/{type}", method = RequestMethod.GET)
-    public String searchBasicInfo(Model model, @PathVariable String name, @PathVariable int type) {
+    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
+    public String search(Model model, @PathVariable String name) {
         List<GeonameDesc> descs = selectionHandler.descNames(name);
         if (descs == null) {
             return "index";
         } else if (descs.size() > 1) {
-            model.addAttribute("type", type);
             model.addAttribute("name", name);
             model.addAttribute("selections", descs);
             return "selection";
         } else {
-            //直接到views
-            return "view";
+            return "redirect:/view/" + descs.get(0).getGeonameid();
         }
     }
+
 }

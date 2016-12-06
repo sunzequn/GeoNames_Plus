@@ -18,3 +18,4 @@ hs_err_pid*
 /src/main/resources/geonames_zhs_all
 /src/main/resources/fclass_mappings
 /target/
+/src/main/resources/geonames_climate

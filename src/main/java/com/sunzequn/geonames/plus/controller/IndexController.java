@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by sloriac on 16-12-4.
+ *
  */
 @Controller
 @RequestMapping("/")

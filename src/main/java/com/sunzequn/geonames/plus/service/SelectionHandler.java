@@ -28,7 +28,7 @@ public class SelectionHandler {
 
     public List<GeonameDesc> descNames(String name) {
         List<GeonameDesc> descs = new ArrayList<>();
-        List<Integer> ids;
+        List<String> ids;
         //判断中英文
         if (!StringUtil.isContainsStr(name)) {//中文
             ids = namesLoader.getIdByZhName(name);
@@ -37,8 +37,8 @@ public class SelectionHandler {
         }
         if (ids == null) return null;
         int index = 0;
-        for (Integer id : ids) {
-            Geoname geoname = geoNameDao.getById(id);
+        for (String id : ids) {
+            Geoname geoname = geoNameDao.getById(Integer.parseInt(id));
             if (geoname != null) {
                 index++;
                 descs.add(descGeoname(index, geoname, name));
