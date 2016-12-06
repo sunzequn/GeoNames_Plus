@@ -13,7 +13,7 @@
  http://www.springframework.org/schema/websocket/spring-websocket.xsd">
 
     <!-- 导入mysql配置文件 -->
-    <context:property-placeholder location="WEB-INF/conf/mysql.properties"/>
+    <context:property-placeholder location="WEB-INF/conf/db.properties"/>
 
     <!-- 配置数据源 -->
     <bean id="dataSource" class="com.sunzequn.geonames.plus.dao.mysql.DataSourcePool">
@@ -22,6 +22,9 @@
         <constructor-arg index="2" value="${jdbc.driverClass}"/>
         <constructor-arg index="3" value="${jdbc.jdbcUrl}"/>
         <constructor-arg index="4" value="${jdbc.initPoolSize}"/>
+    </bean>
+    <bean id="sparql" class="com.sunzequn.geonames.plus.dao.virtuoso.Sparql">
+        <constructor-arg value="${geonames.port}"/>
     </bean>
 
     <!-- 配置自动扫描的包,忽略Controller -->

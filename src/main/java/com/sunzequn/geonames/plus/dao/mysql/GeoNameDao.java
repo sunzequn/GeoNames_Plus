@@ -22,9 +22,8 @@ public class GeoNameDao extends BaseDao {
     private String table = "geoname";
 
     public Geoname getById(int geonameId) {
-        Connection connection = null;
         try {
-            connection = dataSourcePool.getConnection();
+            Connection connection = dataSourcePool.getConnection();
             String sql = "select * from " + table + " where geonameid = " + geonameId;
             List<Geoname> geonames = query(connection, sql, null, Geoname.class);
             connection.close();
@@ -35,6 +34,27 @@ public class GeoNameDao extends BaseDao {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public List<Geoname> getNearby(Geoname geoname) {
+        double latMin = geoname.getLatitude() - 0.5;
+        double latMax = geoname.getLatitude() + 0.5;
+        double lngMin = geoname.getLongitude() - 0.5;
+        double lngMax = geoname.getLongitude() + 0.5;
+        try {
+            Connection connection = dataSourcePool.getConnection();
+            String sql = "select * from " + table + " where longitude > ? and longitude < ? and latitude > ? and latitude < ? and fclass = ? and geonameid <> ?";
+            Object[] params = {lngMin, lngMax, latMin, latMax, geoname.getFclass(), geoname.getGeonameid()};
+            List<Geoname> geonames = query(connection, sql, params, Geoname.class);
+            connection.close();
+            if (ListUtil.isEmpty(geonames))
+                return null;
+            return geonames;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
 

@@ -9,13 +9,15 @@ public class GeonameDesc {
     private int geonameid;
     private String name;
     private String fclass;
+    private String fcode;
     private String country;
 
-    public GeonameDesc(String id, int geonameid, String name, String fclass, String country) {
+    public GeonameDesc(String id, int geonameid, String name, String fclass, String fcode, String country) {
         this.id = id;
         this.geonameid = geonameid;
         this.name = name;
         this.fclass = fclass;
+        this.fcode = fcode;
         this.country = country;
     }
 
@@ -51,22 +53,19 @@ public class GeonameDesc {
         this.fclass = fclass;
     }
 
+    public String getFcode() {
+        return fcode;
+    }
+
+    public void setFcode(String fcode) {
+        this.fcode = fcode;
+    }
+
     public String getCountry() {
         return country;
     }
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    @Override
-    public String toString() {
-        return "GeonameDesc{" +
-                "id='" + id + '\'' +
-                ", geonameid=" + geonameid +
-                ", name='" + name + '\'' +
-                ", fclass='" + fclass + '\'' +
-                ", country='" + country + '\'' +
-                '}';
     }
 }

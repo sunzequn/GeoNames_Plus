@@ -17,6 +17,7 @@ public class NamesLoader {
     private One2MoreHashSet zhNames2IdsMap = new One2MoreHashSet();
     private One2MoreHashSet ids2ZhNamesMap = new One2MoreHashSet();
     private One2MoreHashSet names2IdsMap = new One2MoreHashSet();
+    private One2MoreHashSet ids2NamesMap = new One2MoreHashSet();
 
     private String prefix;
 
@@ -45,9 +46,15 @@ public class NamesLoader {
         return res;
     }
 
+    public String getNameById(int id) {
+        List<String> names = ids2NamesMap.get(String.valueOf(id));
+        if (names == null) return null;
+        return names.get(0);
+    }
+
     private void loadNames() {
         String file = prefix + "geonames_names";
-        load(names2IdsMap, file, null);
+        load(names2IdsMap, file, ids2NamesMap);
         logger.info("加载GeoNames名称数据, 数量:" + names2IdsMap.getNum());
     }
 

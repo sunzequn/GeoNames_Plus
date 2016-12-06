@@ -2,11 +2,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:useBean id="name" scope="request" type="java.lang.String"/>
 <jsp:useBean id="selections" scope="request" type="java.util.List"/>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>实体列表</title>
 </head>
 <body>
 <jsp:include page="common.jsp"></jsp:include>
@@ -37,7 +36,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-4 top">
+        <div class="col-lg-5 top">
             <div class="input-group">
                 <input type="text" id="search-input" class="form-control" onkeyup="search_enter(event)">
                 <div class="input-group-btn">
@@ -50,6 +49,7 @@
                     <td>标号</td>
                     <td>名称</td>
                     <td>类型</td>
+                    <td>具体类型</td>
                     <td>国家</td>
                     <td>详情</td>
                     <td>附近地点</td>
@@ -59,6 +59,7 @@
                         <td>${selection.id}</td>
                         <td>${selection.name}</td>
                         <td>${selection.fclass}</td>
+                        <td>${selection.fcode}</td>
                         <td>${selection.country}</td>
                         <td><a href="/geonamesplus/view/${selection.geonameid}"><span
                                 class="glyphicon glyphicon-search"></span></a></td>

@@ -59,6 +59,8 @@
 
 </div>
 
+<div class="row bottom">&copy; 2016 The Websoft Research Group, Nanjing University, P.R. China</div>
+
 
 </body>
 </html>

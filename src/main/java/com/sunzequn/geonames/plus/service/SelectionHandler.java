@@ -10,10 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
  * Created by sloriac on 16-12-5.
+ *
  */
 @Service
 public class SelectionHandler {
@@ -41,13 +44,23 @@ public class SelectionHandler {
             Geoname geoname = geoNameDao.getById(Integer.parseInt(id));
             if (geoname != null) {
                 index++;
-                descs.add(descGeoname(index, geoname, name));
+                descs.add(descGeoname(geoname, name));
             }
         }
-        return descs.size() > 0 ? descs : null;
+        return descs.size() > 0 ? orderedDesc(descs) : null;
     }
 
-    private GeonameDesc descGeoname(int index, Geoname geoname, String name) {
-        return new GeonameDesc("#" + index, geoname.getGeonameid(), name, fclassMappingLoader.get(geoname.getFclass()), geoname.getCountry());
+    public GeonameDesc descGeoname(Geoname geoname, String name) {
+        return new GeonameDesc("#", geoname.getGeonameid(), name, fclassMappingLoader.get(geoname.getFclass()), geoname.getFcode(), geoname.getCountry());
+    }
+
+    public List<GeonameDesc> orderedDesc(List<GeonameDesc> descs) {
+        Collections.sort(descs, (o1, o2) -> o1.getFcode().compareTo(o2.getFcode()));
+        int index = 0;
+        for (GeonameDesc desc : descs) {
+            index++;
+            desc.setId(desc.getId() + index);
+        }
+        return descs;
     }
 }

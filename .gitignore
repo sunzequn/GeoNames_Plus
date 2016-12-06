@@ -19,3 +19,4 @@ hs_err_pid*
 /src/main/resources/fclass_mappings
 /target/
 /src/main/resources/geonames_climate
+/src/main/resources/geonames_china_climate_site

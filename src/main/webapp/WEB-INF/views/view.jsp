@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
     <meta charset="UTF-8">
-    <title>实体列表</title>
+    <title>实体详情</title>
 </head>
 <body>
 <jsp:include page="common.jsp"></jsp:include>
@@ -37,6 +37,13 @@
     <div class="row">
         <div class="col-lg-4 top">
 
+            <div class="input-group">
+                <input type="text" id="search-input" value="${name}" class="form-control" onkeyup="search_enter(event)">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default" onclick="search_input()">查询</button>
+                </div>
+            </div>
+
             <table class="table table-striped table-margin-top">
                 <jsp:useBean id="propValues" scope="request" type="java.util.List"/>
                 <c:forEach var="propValue" items="${propValues}">
@@ -46,6 +53,7 @@
                     </tr>
                 </c:forEach>
             </table>
+
 
         </div>
     </div>
