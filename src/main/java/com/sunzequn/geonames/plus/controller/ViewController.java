@@ -1,5 +1,6 @@
 package com.sunzequn.geonames.plus.controller;
 
+import com.github.jsonldjava.utils.Obj;
 import com.sunzequn.geonames.plus.bean.PropValue;
 import com.sunzequn.geonames.plus.service.ViewHandler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,16 @@ public class ViewController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String view(Model model, @PathVariable int id) {
-        List<PropValue> propValues = viewHandler.geneProps(id);
+        Object[] objects = viewHandler.geneProps(id);
+        List<PropValue> propValues = (List<PropValue>) objects[0];
+        String name = (String) objects[1];
+        double lng = (double) objects[2];
+        double lat = (double) objects[3];
         model.addAttribute("propValues", propValues);
         model.addAttribute("id", id);
+        model.addAttribute("name", name);
+        model.addAttribute("lng", lng);
+        model.addAttribute("lat", lat);
         return "view";
     }
 }

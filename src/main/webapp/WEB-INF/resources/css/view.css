@@ -40,3 +40,10 @@
     position: relative;
     margin-bottom: 4px;
 }
+
+.bdmap {
+    height: 600px;
+    width: 400px;
+    margin-left: 50px;
+    margin-top: 30%;
+}

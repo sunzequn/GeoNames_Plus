@@ -39,11 +39,9 @@ public class SelectionHandler {
             ids = namesLoader.getIdByName(name);
         }
         if (ids == null) return null;
-        int index = 0;
         for (String id : ids) {
             Geoname geoname = geoNameDao.getById(Integer.parseInt(id));
             if (geoname != null) {
-                index++;
                 descs.add(descGeoname(geoname, name));
             }
         }

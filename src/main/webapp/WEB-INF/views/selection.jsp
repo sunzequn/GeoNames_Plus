@@ -37,12 +37,17 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-5 top">
-            <div class="input-group">
-                <input type="text" id="search-input" class="form-control" onkeyup="search_enter(event)">
-                <div class="input-group-btn">
-                    <button type="button" class="btn btn-default" onclick="search_input()">查询</button>
-                </div>
-            </div>
+
+            <c:if test="${message != null}">
+                <div class="alert alert-info" role="alert">${message}</div>
+            </c:if>
+
+            <%--<div class="input-group">--%>
+            <%--<input type="text" id="search-input" class="form-control" onkeyup="search_enter(event)">--%>
+            <%--<div class="input-group-btn">--%>
+            <%--<button type="button" class="btn btn-default" onclick="search_input()">查询</button>--%>
+            <%--</div>--%>
+            <%--</div>--%>
 
             <table class="table table-striped div-margin-top">
                 <tr>
@@ -63,7 +68,7 @@
                         <td>${selection.country}</td>
                         <td><a href="/geonamesplus/view/${selection.geonameid}"><span
                                 class="glyphicon glyphicon-search"></span></a></td>
-                        <td><a href="/geonamesplus/nearby/${selection.geonameid}"><span
+                        <td><a href="/geonamesplus/nearby/${selection.geonameid}/${selection.name}"><span
                                 class="glyphicon glyphicon-map-marker"></span></a></td>
                     </tr>
                 </c:forEach>

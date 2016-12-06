@@ -1,5 +1,6 @@
 package com.sunzequn.geonames.plus.service;
 
+import com.github.jsonldjava.utils.Obj;
 import com.sunzequn.geonames.plus.bean.ChinaClimateFactor;
 import com.sunzequn.geonames.plus.bean.Climate;
 import com.sunzequn.geonames.plus.bean.Geoname;
@@ -41,15 +42,19 @@ public class ViewHandler {
     @Autowired
     private GeoNamesClimateSiteLoader geoNamesClimateSiteLoader;
 
-    public List<PropValue> geneProps(int id) {
+    public Object[] geneProps(int id) {
         List<PropValue> propValues = new ArrayList<>();
-        List<PropValue> basicProps = geneBasicProp(id);
+        Object[] objs = geneBasicProp(id);
+        List<PropValue> basicProps = (List<PropValue>) objs[0];
+        String names = (String) objs[1];
+        double lng = (double) objs[2];
+        double lat = (double) objs[3];
         if (basicProps == null) return null;
         propValues.addAll(basicProps);
         List<PropValue> climatePropValues = geneClimateProp(id);
         if (climatePropValues != null)
             propValues.addAll(climatePropValues);
-        return propValues;
+        return new Object[]{propValues, names, lng, lat};
     }
 
     private List<PropValue> geneClimateProp(int id) {
@@ -68,17 +73,16 @@ public class ViewHandler {
         return climateProps;
     }
 
-    private List<PropValue> geneBasicProp(int id) {
+    private Object[] geneBasicProp(int id) {
         Geoname geoname = geoNameDao.getById(id);
         if (geoname == null) return null;
         List<PropValue> basicProps = new ArrayList<>();
 
         basicProps.add(new PropValue("ID", String.valueOf(id)));
 
-        String zhNames = namesLoader.getZhNamesById(id);
-        if (zhNames != null)
-            basicProps.add(new PropValue("名称", zhNames));
-        else basicProps.add(new PropValue("名称", geoname.getAsciiname()));
+        String names = namesLoader.getZhNamesById(id);
+        if (names == null) names = geoname.getAsciiname();
+        basicProps.add(new PropValue("名称", names));
 
         basicProps.add(new PropValue("类型", fClassMappingLoader.get(geoname.getFclass())));
         basicProps.add(new PropValue("具体类型", geoname.getFcode()));
@@ -92,7 +96,7 @@ public class ViewHandler {
             basicProps.add(new PropValue("人口", String.valueOf(population)));
 
         basicProps.add(new PropValue("时区", geoname.getTimezone()));
-        return basicProps;
+        return new Object[]{basicProps, names, geoname.getLongitude(), geoname.getLatitude()};
     }
 
     public double nianJunQiWen(int geonameid) {

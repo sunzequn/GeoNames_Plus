@@ -21,9 +21,10 @@ public class NearbyController {
     @Autowired
     private NearbyHandler nearbyHandler;
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String nearby(Model model, @PathVariable int id) {
+    @RequestMapping(value = "/{id}/{name}", method = RequestMethod.GET)
+    public String nearby(Model model, @PathVariable int id, @PathVariable String name) {
         List<GeonameDesc> geonameDescs = nearbyHandler.getNearby(id);
+        model.addAttribute("message", "<strong>" + name + "</strong> 附近地点如下:");
         model.addAttribute("selections", geonameDescs);
         return "selection";
     }

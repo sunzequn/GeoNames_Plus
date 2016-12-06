@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="zh-CN">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -12,7 +13,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">导航条</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -46,6 +47,15 @@
                     <button type="button" class="btn btn-default" onclick="search_input()">查询</button>
                 </div>
             </div>
+
+            <c:if test="${message != null}">
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <strong>${message}</strong>
+                </div>
+            </c:if>
+
         </div>
     </div>
 

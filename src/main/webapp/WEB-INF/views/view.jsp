@@ -1,9 +1,11 @@
 <html lang="zh-CN">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=OLBEClvDD5tLTAGB1oQ83QwcFTZ8VslV"></script>
     <title>实体详情</title>
 </head>
 <body>
@@ -33,10 +35,9 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-lg-4 top">
-
             <table class="table table-striped div-margin-top">
                 <jsp:useBean id="propValues" scope="request" type="java.util.List"/>
                 <c:forEach var="propValue" items="${propValues}">
@@ -55,10 +56,22 @@
                     <button type="button" class="btn btn-default" onclick="feed_input(${id})">提交</button>
                 </div>
             </div>
-
         </div>
+        <div class="col-lg-4">
+            <div id="allmap" class="bdmap"></div>
+        </div>
+
     </div>
 </div>
 
 </body>
 </html>
+
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");    // 创建Map实例
+    map.centerAndZoom(new BMap.Point(${lng}, ${lat}), 11);  // 初始化地图,设置中心点坐标和地图级别
+    map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+    map.setCurrentCity(${name});          // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>

@@ -32,8 +32,9 @@ public class SearchController {
         List<GeonameDesc> descs = selectionHandler.descNames(name);
         if (descs == null) {
             model.addAttribute("message", "没有查到相关实体");
-            return "none";
+            return "index";
         } else if (descs.size() > 1) {
+            model.addAttribute("message", "关于 <strong>" + name + "</strong> 的搜索结果如下:");
             model.addAttribute("selections", descs);
             return "selection";
         } else {
