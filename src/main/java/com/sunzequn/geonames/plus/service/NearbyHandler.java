@@ -31,6 +31,8 @@ public class NearbyHandler {
         if (geoname == null) return null;
         List<Geoname> geonames = geoNameDao.getNearby(geoname);
         return desc(geonames);
+//        List<GeonameDesc> geonameDescs = getNearbyFromVirtuoso(id);
+//        return geonameDescs.size() > 0 ? selectionHandler.orderedDesc(geonameDescs) : null;
     }
 
     public List<GeonameDesc> getNearbyFromVirtuoso(int id) {

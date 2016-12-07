@@ -2,6 +2,7 @@ package com.sunzequn.geonames.plus.controller;
 
 import com.github.jsonldjava.utils.Obj;
 import com.sunzequn.geonames.plus.bean.PropValue;
+import com.sunzequn.geonames.plus.service.SelectionHandler;
 import com.sunzequn.geonames.plus.service.ViewHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,8 @@ public class ViewController {
         model.addAttribute("name", name);
         model.addAttribute("lng", lng);
         model.addAttribute("lat", lat);
+        if (objects.length == 5)
+            model.addAttribute("wiki", (String) objects[4]);
         return "view";
     }
 }

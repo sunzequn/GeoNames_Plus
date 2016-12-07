@@ -23,7 +23,6 @@ public class Sparql {
         try {
             ParameterizedSparqlString sparqlstr = new ParameterizedSparqlString(sql);
             URL queryURL = new URL(ip + "sparql?default-graph-uri=&query=" + URLEncoder.encode(sparqlstr.toString(), "UTF-8") + "&format=xml%2Fhtml&timeout=0&debug=on");
-            System.out.println(queryURL.toString());
             URLConnection connAPI = queryURL.openConnection();
             connAPI.setConnectTimeout(10000);
             connAPI.connect();

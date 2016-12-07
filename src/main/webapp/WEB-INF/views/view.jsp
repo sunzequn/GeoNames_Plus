@@ -46,17 +46,26 @@
                         <td>${propValue.value}</td>
                     </tr>
                 </c:forEach>
+                <c:if test="${wiki != null}">
+                    <tr>
+                        <td>来源</td>
+                        <td><a href="${wiki}">维基百科</a></td>
+                    </tr>
+                </c:if>
             </table>
 
             <div class="alert alert-warning div-margin-top40" role="alert">数据有误? 请反馈给我们! 谢谢~</div>
 
-            <div class="input-group div-margin-top">
+            <div class="input-group div-margin-top ">
                 <input type="text" id="feed-input" class="form-control" onkeyup="feed_enter(event)">
                 <div class="input-group-btn">
                     <button type="button" class="btn btn-default" onclick="feed_input(${id})">提交</button>
                 </div>
             </div>
+            <br/>
+            <br/>
         </div>
+
         <div class="col-lg-4">
             <div id="allmap" class="bdmap"></div>
         </div>

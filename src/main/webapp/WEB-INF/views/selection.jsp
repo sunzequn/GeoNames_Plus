@@ -73,6 +73,8 @@
                     </tr>
                 </c:forEach>
             </table>
+            <br/>
+            <br/>
 
         </div>
     </div>

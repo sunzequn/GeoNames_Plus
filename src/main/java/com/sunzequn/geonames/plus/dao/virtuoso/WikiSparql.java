@@ -1,5 +1,6 @@
 package com.sunzequn.geonames.plus.dao.virtuoso;
 
+import com.sunzequn.geonames.plus.bean.Geoname;
 import com.sunzequn.geonames.plus.utils.GeoNameUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jena.query.QuerySolution;
@@ -16,28 +17,21 @@ import java.util.Set;
  * Created by sloriac on 16-12-6.
  */
 @Service
-public class NearbySparql {
+public class WikiSparql {
 
     @Autowired
     private Sparql sparql;
 
-    public List<Integer> getNearby(int id) {
+    public String getWiki(int id) {
         String uri = GeoNameUtil.getUri(id);
-        String sql = "select * from <http://www.geonames.org/nearby/> where {<" + uri + "> <http://www.geonames.org/ontology#nearby> ?o}";
-//        System.out.println(sql);
+        String sql = "select * from <http://www.geonames.org/about/> where {<" + uri + "> <http://www.geonames.org/ontology#wikipediaArticle> ?o}";
+        System.out.println(sql);
         ResultSet resultSet = sparql.excSparql(sql);
-        Set<Integer> idset = new HashSet<>();
-        List<Integer> res = new ArrayList<>();
         while (resultSet.hasNext()) {
             QuerySolution result = resultSet.nextSolution();
-            String ouri = result.get("o").toString();
-            int oid = GeoNameUtil.parseId(ouri);
-            if (!idset.contains(oid)) {
-                idset.add(oid);
-                res.add(oid);
-            }
+            return result.get("o").toString();
         }
-        return res.size() > 0 ? res : null;
+        return null;
     }
 
 }

@@ -8,6 +8,7 @@ import com.sunzequn.geonames.plus.bean.PropValue;
 import com.sunzequn.geonames.plus.dao.mysql.ChinaClimateFactorDao;
 import com.sunzequn.geonames.plus.dao.mysql.ClimateDao;
 import com.sunzequn.geonames.plus.dao.mysql.GeoNameDao;
+import com.sunzequn.geonames.plus.dao.virtuoso.WikiSparql;
 import com.sunzequn.geonames.plus.loader.FClassMappingLoader;
 import com.sunzequn.geonames.plus.loader.GeoNamesClimateLoader;
 import com.sunzequn.geonames.plus.loader.GeoNamesClimateSiteLoader;
@@ -41,6 +42,8 @@ public class ViewHandler {
     private ChinaClimateFactorDao chinaClimateFactorDao;
     @Autowired
     private GeoNamesClimateSiteLoader geoNamesClimateSiteLoader;
+    @Autowired
+    private WikiSparql wikiSparql;
 
     public Object[] geneProps(int id) {
         List<PropValue> propValues = new ArrayList<>();
@@ -54,7 +57,10 @@ public class ViewHandler {
         List<PropValue> climatePropValues = geneClimateProp(id);
         if (climatePropValues != null)
             propValues.addAll(climatePropValues);
-        return new Object[]{propValues, names, lng, lat};
+        String wiki = wikiSparql.getWiki(id);
+        if (wiki == null)
+            return new Object[]{propValues, names, lng, lat};
+        return new Object[]{propValues, names, lng, lat, wiki};
     }
 
     private List<PropValue> geneClimateProp(int id) {
