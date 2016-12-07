@@ -73,7 +73,14 @@
         <div class="col-lg-3"></div>
     </div>
 
+
+    <div class="row bottom">
+        &copy; 2016 <a href="http://ws.nju.edu.cn/" onclick="window.open(this.href); return false;">
+        The Websoft Research Group</a>, Nanjing University, P.R. China
+    </div>
+
 </div>
+
 
 </body>
 </html>

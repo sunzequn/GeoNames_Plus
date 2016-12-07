@@ -25,7 +25,7 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">查询</a></li>
+                    <li><a href="/geonamesplus/">查询</a></li>
                     <li><a href="/geonamesplus/as/">关联搜索</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -70,6 +70,8 @@
 
         </div>
         <div class="col-lg-3"></div>
+        <br/>
+        <br/>
     </div>
 
 </div>

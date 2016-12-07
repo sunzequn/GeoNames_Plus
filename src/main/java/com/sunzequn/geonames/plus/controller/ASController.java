@@ -20,6 +20,6 @@ public class ASController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String view() {
-        return "redirect:http://210.28.132.62:8080/GEONamesAS/";
+        return "redirect:http://210.28.132.62:8080/geonamesplusas/";
     }
 }
