@@ -17,7 +17,7 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">导航条</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -27,8 +27,8 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/geonamesplus/">查询</a></li>
-                    <li><a href="http://ws.nju.edu.cn/explass/">关联搜索</a></li>
+                    <li><a href="#">查询</a></li>
+                    <li><a href="/geonamesplus/as/">关联搜索</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="http://ws2.nju.edu.cn/geokb-wiki/">关于我们</a></li>
