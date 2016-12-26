@@ -13,7 +13,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
+                        data-target="#navbar">
                     <span class="sr-only">导航条</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -35,10 +35,10 @@
     </nav>
 
     <div class="row search-row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
             <div class="label-search-info">
-                <label class="label label-info">请输入要查询的实体名称, 比如南京或Nanjing</label>
+                <label class="label label-info">请输入要查询的实体名称, 比如南京、大兴安岭、齐齐哈尔等</label>
             </div>
 
             <div class="input-group">
@@ -56,12 +56,12 @@
                 </div>
             </c:if>
         </div>
-        <div class="col-lg-4"></div>
+        <div class="col-xs-4"></div>
     </div>
 
     <div class="row jumbotron-row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
             <div class="jumbotron inner-padding">
                 <h2>地理基础知识库</h2>
                 <h4>基础库以GeoNames数据集为核心. GeoNames是一个地点基础信息知识库, 收录了全球1000多万地点实体.
@@ -70,7 +70,7 @@
                     基础库一共包含超过1100万的地点实体和约2亿多条三元组.</h4>
             </div>
         </div>
-        <div class="col-lg-3"></div>
+        <div class="col-xs-3"></div>
     </div>
 
 

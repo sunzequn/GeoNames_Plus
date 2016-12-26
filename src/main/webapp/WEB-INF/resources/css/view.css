@@ -1,3 +1,7 @@
+.container {
+    width: 960px !important;
+}
+
 .label-search-info {
     position: relative;
     margin-bottom: 4px;
@@ -5,7 +9,7 @@
 
 .bdmap {
     height: 600px;
-    width: 400px;
+    width: 300px;
     margin: 30px auto 0;
 }
 

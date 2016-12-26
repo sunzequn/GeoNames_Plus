@@ -16,7 +16,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
+                        data-target="#navbar">
                     <span class="sr-only">导航条</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -38,12 +38,12 @@
     </nav>
 
     <div class="row view-row">
-        <div class="col-lg-4">
-
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
             <div id="allmap" class="bdmap"></div>
-
         </div>
-        <div class="col-lg-4">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-4">
             <table class="table table-striped div-margin-top">
                 <jsp:useBean id="propValues" scope="request" type="java.util.List"/>
                 <c:forEach var="propValue" items="${propValues}">
@@ -71,7 +71,7 @@
             <br/>
             <br/>
         </div>
-        <div class="col-lg-4"></div>
+        <div class="col-xs-3"></div>
         <br/>
     </div>
 </div>

@@ -14,7 +14,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
+                        data-target="#navbar">
                     <span class="sr-only">导航条</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -37,8 +37,8 @@
 
 
     <div class="row selection-label-row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
             <c:if test="${message != null}">
                 <div class="alert alert-info" role="alert">${message}</div>
             </c:if>
@@ -69,7 +69,7 @@
             </table>
 
         </div>
-        <div class="col-lg-3"></div>
+        <div class="col-xs-3"></div>
         <br/>
         <br/>
     </div>
